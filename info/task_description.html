@@ -1,0 +1,56 @@
+<!-- Describe task in general -->
+
+<p style="text-align: justify;">
+    You are given a rectangle, which is defined by its width <b class="code">w</b> and height <b class="code">h</b>, both positive integers. We allow a rectangle to be cut into two smaller rectangles with either a straight horizontal or a straight vertical cut at any integer position. For example, one of the possible ways to cut the rectangle (5, 8) in two pieces would be to cut it into (2, 8) and (3, 8). Another way would be to cut it into two pieces is (5, 4) and (5, 4) etc. The resulting smaller pieces can then be further cut into smaller pieces, as long as the length of the side being cut is at least two to allow a cut. (You are NOT allowed to cut multiple pieces in one motion of the blade by stacking pieces on top of each other.)  
+</p>
+
+<p  style="text-align: justify;">
+    Your task is to keep cutting the given rectangle into smaller pieces until each piece is a square, that is, the width of each piece equals its own height. This is always possible, since you could just keep cutting until the size of each piece has become 1-by-1. However, this function should return the smallest number of cuts that makes each piece a square.
+</p>
+
+    <!-- <p style="text-align: center;">
+        <img  title="example" src="{{MEDIA}}example.png" alt="example" style="max-height: 83px"/>
+    </p> -->
+
+<!-- Explain input and output values -->
+<p>
+    <strong>Input:</strong> Two integers <span translate="no">({% if is_js %}number{% else %}int{% endif %})</span>.
+</p>
+
+<p>
+    <strong>Output:</strong> Integer <span translate="no">({% if is_js %}number{% else %}int{% endif %})</span>. 
+</p>
+
+
+<p>
+    <strong>Examples:</strong>
+</p>
+
+<pre class="brush: {% if is_js %}javascript{% else %}python{% endif %}">{{init_code_tmpl}}</pre>
+<br/>
+<details>
+    <summary><i>Feel yourself in need of a hint? Click on this line.</i></summary>
+    <p style="text-align: justify;"><i>
+        This problem is best solved with recursion. Its base cases are when w==h for a piece that is already a square so you return 0, and when min(w,h)==1 allowing no further cuts on the shorter side, return max(w,h)-1.  Otherwise, loop  through  the  possible  ways  to  cut  this piece into two smaller pieces, recursively computing the best possible way to cut up these two pieces. Return the number of cuts produced by the optimal way of cutting this piece. Since this branching recursion would visit its  subproblems  exponentially  many  times,  you  will  surely  want  to  sprinkle  some <b class="code">@lru_cache</b> memoization magic on it to downgrade that exponential tangle into a mere quadratic one.
+    </i></p>
+</details>
+
+<p><i>
+    The mission was taken from <span translate="no">Python CCPS 109</span>. It is taught for <span translate="no">Ryerson Chang School of Continuing Education</span> by <a href="http://www.scs.ryerson.ca/~ikokkari/">Ilkka Kokkarinen</a>
+</i></p>
+<!-- Here you can explain how it can be used in development -->
+<!-- The section is optional -->
+<!-- <p class="for_info_only">
+
+    <strong>How it’s used:</strong>
+    <i>(math is used everywhere)</i>
+</p> -->
+
+<!-- Here you can explain some constraints for input-->
+<!-- The section is optional -->
+<!-- <p>
+    <strong>Preconditions:</strong>
+    <ul>
+    <li><i>both given ints should be between -1000 and 1000</i></li>
+    </ul>
+</p> -->
