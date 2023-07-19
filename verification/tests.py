@@ -32,5 +32,21 @@ TESTS = {
             "input": [149, 139],
             "answer": 19,
         },
+        {
+            "input": [25, 23],
+            "answer": 11
+        },
+        {
+            "input": [27, 25],
+            "answer": 10
+        },
+        {
+            "input": [31, 29],
+            "answer": 15
+        },
+        {
+            "input": [139, 137],
+            "answer": 21
+        },
     ]
 }
