@@ -8,11 +8,13 @@ Each test is a dict with
 """
 from random import randint
 
+
 memo = dict()
 
-
-def get_cutting_lines(w: int, h: int) -> [int]:
-    def cut(cw, ch):
+def get_cutting_lines(w: int, h: int) -> list[list[int]]:
+    
+    def cut(cw: int, ch: int) -> int:
+        
         if cw == ch:
             return 0
         if (cw, ch) in memo:
@@ -56,7 +58,8 @@ def get_cutting_lines(w: int, h: int) -> [int]:
     return lines
 
 
-def make_random_tests(num=5, min_length=10, max_length=150):
+def make_random_tests(num=5, min_length=10, max_length=150) -> dict:
+    
     for _ in range(num):
         rw = randint(min_length, max_length)
         rh = randint(min_length, max_length)
@@ -214,5 +217,5 @@ TESTS = {
             ],
         },
     ],
-    "Rondoms": list(make_random_tests())
+    "Randoms": list(make_random_tests())
 }
