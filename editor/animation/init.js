@@ -92,8 +92,14 @@ requirejs(['ext_editor_io2', 'jquery_190', 'raphael_210'],
                 return
             }
             const squares = data.ext.explanation
-            squares.forEach(([x, y, edge]) => {
-                paper.rect(unit * x + os, unit * y + os, unit * edge, unit * edge).attr(attr.grid.outer)
+            squares.forEach((ex) => {
+                if (ex.length == 3) {
+                    let [x, y, edge] = ex
+                    paper.rect(unit * x + os, unit * y + os, unit * edge, unit * edge).attr(attr.grid.outer)
+                } else {
+                    let [x, y, direction, edge] = ex
+                    paper.path(['M', unit * x + os, unit * y + os, direction, unit * edge]).attr(attr.outer)
+                }
             })
         }
         var io = new extIO({

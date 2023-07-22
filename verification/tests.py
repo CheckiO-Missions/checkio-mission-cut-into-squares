@@ -6,6 +6,64 @@ Each test is a dict with
     "answer" -- your right answer
     "explanation" -- not necessarily a key, it's used for an additional info in animation.
 """
+from random import randint
+
+memo = dict()
+
+
+def get_cutting_lines(w: int, h: int) -> [int]:
+    def cut(cw, ch):
+        if cw == ch:
+            return 0
+        if (cw, ch) in memo:
+            return memo[(cw, ch)][0]
+        min_cut = cw * ch
+        rects = tuple()
+        for i in range(1, ch // 2 + 1):
+            a = (cw, i)
+            b = (cw, ch - i)
+            if (new_cut := cut(*a) + cut(*b)) < min_cut:
+                rects = (a, b)
+                min_cut = new_cut
+        for j in range(1, cw // 2 + 1):
+            a = (j, ch)
+            b = (cw - j, ch)
+            if (new_cut := cut(*a) + cut(*b)) < min_cut:
+                rects = (a, b)
+                min_cut = new_cut
+        memo[(cw, ch)] = 1 + min_cut, rects
+        return 1 + min_cut
+
+    cut(w, h)
+
+    stack = [((w, h), (0, 0))]
+    lines = list()
+    while stack:
+        (sw, sh), (x, y) = stack.pop()
+        if sw == sh:
+            continue
+        (w1, h1), (w2, h2) = memo[(sw, sh)][1]
+        stack.append(((w1, h1), (x, y)))
+        # |
+        if w1 != sw:
+            lines.append([x + w1, y, 'v', sh])
+            stack.append(((w2, h2), (x + w1, y)))
+        # -
+        elif h1 != sh:
+            lines.append([x, y + h1, 'h', sw])
+            stack.append(((w2, h2), (x, y + h1)))
+
+    return lines
+
+
+def make_random_tests(num=5, min_length=10, max_length=150):
+    for _ in range(num):
+        rw = randint(min_length, max_length)
+        rh = randint(min_length, max_length)
+        cutting_lines = get_cutting_lines(rw, rh)
+        yield {'input': [rw, rh],
+               'answer': len(cutting_lines),
+               'explanation': cutting_lines}
 
 
 TESTS = {
@@ -155,5 +213,6 @@ TESTS = {
                 [136, 134, 3],
             ],
         },
-    ]
+    ],
+    "Rondoms": list(make_random_tests())
 }
