@@ -1,0 +1,58 @@
+<!-- Describe task in general -->
+
+<p style="float: left;">
+    <img  title="example" src="{{MEDIA}}rectangles.jpeg" alt="example" style="max-height: 300px; margin-right: 10px"/>
+</p>
+
+<p style="text-align: justify;">
+    给你一个矩形，它的宽度<b class="code">w</b> 和高度<b class="code">h</b> 都是正整数。我们允许在任意整数位置将矩形横切或竖切成两个较小的矩形。例如，将矩形 (5, 8) 切成两块的一种可能方法是将其切成 (2, 8) 和 (3, 8)。另一种方法是将矩形 (5, 4) 分割成 (5, 4) 等两块。然后，只要被切割边的长度至少为两边，就可以将切割成的小块进一步切割成更小的小块。不允许在一次刀片运动中通过叠加切块的方式切出多块。
+</p>
+
+<p  style="text-align: justify;">
+    您的任务是不断将给定的矩形切割成小块，直到每块都是正方形，即每块的宽度等于其高度。这总是可能的，因为您可以一直切割，直到每块的大小变成 1x1。不过，这个函数应该返回使每块矩形都成为正方形的最小切割次数。
+</p>
+
+
+
+<!-- Explain input and output values -->
+<p>
+   <strong>输入</strong>两个整数 <span>({% if is_js %}number{% else %}int{% endif %})</span>.
+</p>
+
+<p>
+   <strong>输出：</strong>整数 <span>({% if is_js %}number{% else %}int{% endif %})</span>. 
+</p>
+
+
+<p>
+    <strong>示例</strong>
+</p>
+
+<pre class="brush: {% if is_js %}javascript{% else %}python{% endif %}">{{init_code_tmpl}}</pre>
+<br/>
+<details>
+    <summary><i>觉得自己需要提示？点击这一行。</i></summary>
+    <p style="text-align: justify;"><i>
+        这个问题最好用递归法来解决。它的基本情况是：当 w==h 时，棋子已经是正方形，因此返回 0；当 min(w,h)==1 时，不允许在较短的一边继续切割，返回 max(w,h)-1。  否则，在将这块棋子切割成两块小棋子的可能方法中循环，递归计算切割这两块棋子的最佳方法。返回最佳切割方式产生的切割次数。由于这个分支递归会以指数方式多次访问它的子问题，所以你肯定希望在<b class="code">@lru_cache</b> 上洒上一些记忆化魔法，将指数级的纠结降级为二次级的纠结。
+    </i></p>
+</details>
+
+<p><i>
+    该任务摘自<span>Python CCPS 109</span> 。它由<span>Ryerson Chang School of Continuing Education</span> 教授。<a href="https://github.com/ikokkari">Ilkka Kokkarinen</a>
+</i></p>
+<!-- Here you can explain how it can be used in development -->
+<!-- The section is optional -->
+<!-- <p class="for_info_only">
+
+    <strong>How it’s used:</strong>
+    <i>(math is used everywhere)</i>
+</p> -->
+
+<!-- Here you can explain some constraints for input-->
+<!-- The section is optional -->
+<!-- <p>
+    <strong>Preconditions:</strong>
+    <ul>
+    <li><i>both given ints should be between -1000 and 1000</i></li>
+    </ul>
+</p> -->
