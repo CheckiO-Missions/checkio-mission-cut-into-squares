@@ -1,0 +1,58 @@
+<!-- Describe task in general -->
+
+<p style="float: left;">
+    <img  title="example" src="{{MEDIA}}rectangles.jpeg" alt="example" style="max-height: 300px; margin-right: 10px"/>
+</p>
+
+<p style="text-align: justify;">
+    On vous donne un rectangle, qui est défini par sa largeur <b class="code">w</b> et sa hauteur <b class="code">h</b>, toutes deux des nombres entiers positifs. Nous autorisons le découpage d'un rectangle en deux rectangles plus petits à l'aide d'une coupe horizontale droite ou d'une coupe verticale droite à n'importe quelle position entière. Par exemple, l'une des façons possibles de couper le rectangle (5, 8) en deux parties serait de le couper en (2, 8) et (3, 8). Une autre façon serait de le couper en deux parties (5, 4) et (5, 4), etc. Les petits morceaux ainsi obtenus peuvent ensuite être découpés en plus petits morceaux, à condition que la longueur du côté à découper soit au moins égale à deux pour permettre une coupe. Vous n'êtes PAS autorisé à couper plusieurs pièces en un seul mouvement de la lame en empilant les pièces les unes sur les autres.
+</p>
+
+<p  style="text-align: justify;">
+    Votre tâche consiste à continuer à découper le rectangle donné en morceaux plus petits jusqu'à ce que chaque morceau soit un carré, c'est-à-dire que la largeur de chaque morceau soit égale à sa propre hauteur. C'est toujours possible, puisque vous pouvez continuer à couper jusqu'à ce que la taille de chaque pièce soit devenue 1 par 1. Toutefois, cette fonction doit renvoyer le plus petit nombre de coupes permettant à chaque morceau de devenir un carré.
+</p>
+
+
+
+<!-- Explain input and output values -->
+<p>
+   <strong>Entrée:</strong> Deux entiers <span>({% if is_js %}number{% else %}int{% endif %})</span>.
+</p>
+
+<p>
+   <strong>Sortie:</strong> Entier <span>({% if is_js %}number{% else %}int{% endif %})</span>. 
+</p>
+
+
+<p>
+    <strong>Exemples:</strong>
+</p>
+
+<pre class="brush: {% if is_js %}javascript{% else %}python{% endif %}">{{init_code_tmpl}}</pre>
+<br/>
+<details>
+    <summary><i>Vous avez besoin d'un conseil? Cliquez sur cette ligne.</i></summary>
+    <p style="text-align: justify;"><i>
+        Le meilleur moyen de résoudre ce problème est d'utiliser la récursivité. Les cas de base sont lorsque w==h pour une pièce qui est déjà un carré, vous retournez donc 0, et lorsque min(w,h)==1 ne permettant pas d'autres coupes sur le côté le plus court, vous retournez max(w,h)-1.  Sinon, vous bouclez sur les différentes façons de découper ce morceau en deux morceaux plus petits, en calculant récursivement la meilleure façon de découper ces deux morceaux. Retournez le nombre de coupes produites par la façon optimale de découper ce morceau. Comme cette récursion ramifiée visiterait ses sous-problèmes exponentiellement un grand nombre de fois, vous voudrez certainement l'arroser d'un peu de magie de mémorisation <b class="code">@lru_cache</b> pour réduire cet enchevêtrement exponentiel en un simple enchevêtrement quadratique.
+    </i></p>
+</details>
+
+<p><i>
+    La mission est tirée de <span>Python CCPS 109</span>. Elle est enseignée pour <span>Ryerson Chang School of Continuing Education</span> par <a href="https://github.com/ikokkari">Ilkka Kokkarinen</a>
+</i></p>
+<!-- Here you can explain how it can be used in development -->
+<!-- The section is optional -->
+<!-- <p class="for_info_only">
+
+    <strong>How it’s used:</strong>
+    <i>(math is used everywhere)</i>
+</p> -->
+
+<!-- Here you can explain some constraints for input-->
+<!-- The section is optional -->
+<!-- <p>
+    <strong>Preconditions:</strong>
+    <ul>
+    <li><i>both given ints should be between -1000 and 1000</i></li>
+    </ul>
+</p> -->
