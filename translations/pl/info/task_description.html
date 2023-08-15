@@ -1,0 +1,58 @@
+<!-- Describe task in general -->
+
+<p style="float: left;">
+    <img  title="example" src="{{MEDIA}}rectangles.jpeg" alt="example" style="max-height: 300px; margin-right: 10px"/>
+</p>
+
+<p style="text-align: justify;">
+    Dany jest prostokąt, którego szerokość <b class="code">w</b> i wysokość <b class="code">h</b> są liczbami całkowitymi dodatnimi. Dopuszczamy rozcięcie prostokąta na dwa mniejsze prostokąty prostym cięciem poziomym lub prostym cięciem pionowym w dowolnym miejscu całkowitym. Na przykład, jednym z możliwych sposobów pocięcia prostokąta (5, 8) na dwie części byłoby pocięcie go na (2, 8) i (3, 8). Innym sposobem byłoby pocięcie go na dwie części (5, 4) i (5, 4) itd. Powstałe mniejsze kawałki można następnie pociąć na mniejsze kawałki, o ile długość ciętego boku wynosi co najmniej dwa, aby umożliwić cięcie. NIE wolno ciąć wielu kawałków jednym ruchem ostrza, układając kawałki jeden na drugim.
+</p>
+
+<p  style="text-align: justify;">
+    Zadaniem gracza jest cięcie danego prostokąta na mniejsze kawałki, aż każdy z nich będzie kwadratem, czyli szerokość każdego kawałka będzie równa jego wysokości. Jest to zawsze możliwe, ponieważ można po prostu ciąć, aż rozmiar każdego kawałka stanie się 1 na 1. Funkcja ta powinna jednak zwrócić najmniejszą liczbę cięć, która sprawi, że każdy kawałek będzie kwadratem.
+</p>
+
+
+
+<!-- Explain input and output values -->
+<p>
+   <strong>Wejście:</strong> Dwie liczby całkowite <span>({% if is_js %}number{% else %}int{% endif %})</span>.
+</p>
+
+<p>
+   <strong>Wyjście:</strong> Liczba całkowita <span>({% if is_js %}number{% else %}int{% endif %})</span>. 
+</p>
+
+
+<p>
+    <strong>Przykłady:</strong>
+</p>
+
+<pre class="brush: {% if is_js %}javascript{% else %}python{% endif %}">{{init_code_tmpl}}</pre>
+<br/>
+<details>
+    <summary><i>Potrzebują Państwo podpowiedzi? Proszę kliknąć na ten wiersz.</i></summary>
+    <p style="text-align: justify;"><i>
+        Ten problem najlepiej rozwiązać za pomocą rekurencji. Podstawowymi przypadkami są w==h dla kawałka, który jest już kwadratem, więc zwracamy 0, a gdy min(w,h)==1 nie pozwala na dalsze cięcia na krótszym boku, zwracamy max(w,h)-1.  W przeciwnym razie proszę przejść pętlą przez możliwe sposoby pocięcia tego kawałka na dwa mniejsze kawałki, rekurencyjnie obliczając najlepszy możliwy sposób pocięcia tych dwóch kawałków. Proszę zwrócić liczbę cięć wygenerowanych przez optymalny sposób pocięcia tego kawałka. Ponieważ ta rekurencja rozgałęziająca odwiedziłaby swoje podproblemy wykładniczo wiele razy, z pewnością będą Państwo chcieli posypać ją magią memoizacji <b class="code">@lru_cache</b>, aby zmniejszyć tę wykładniczą plątaninę do zaledwie kwadratowej.
+    </i></p>
+</details>
+
+<p><i>
+    Zadanie zostało zaczerpnięte z <span>Python CCPS 109</span>. Jest ono nauczane dla <span>Ryerson Chang School of Continuing Education</span> przez <a href="https://github.com/ikokkari">Ilkka Kokkarinen</a>
+</i></p>
+<!-- Here you can explain how it can be used in development -->
+<!-- The section is optional -->
+<!-- <p class="for_info_only">
+
+    <strong>How it’s used:</strong>
+    <i>(math is used everywhere)</i>
+</p> -->
+
+<!-- Here you can explain some constraints for input-->
+<!-- The section is optional -->
+<!-- <p>
+    <strong>Preconditions:</strong>
+    <ul>
+    <li><i>both given ints should be between -1000 and 1000</i></li>
+    </ul>
+</p> -->
