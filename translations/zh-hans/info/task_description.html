@@ -30,12 +30,7 @@
 
 <pre class="brush: {% if is_js %}javascript{% else %}python{% endif %}">{{init_code_tmpl}}</pre>
 <br/>
-<details>
-    <summary><i>觉得自己需要提示？点击这一行。</i></summary>
-    <p style="text-align: justify;"><i>
-        这个问题最好用递归法来解决。它的基本情况是：当 w==h 时，棋子已经是正方形，因此返回 0；当 min(w,h)==1 时，不允许在较短的一边继续切割，返回 max(w,h)-1。  否则，在将这块棋子切割成两块小棋子的可能方法中循环，递归计算切割这两块棋子的最佳方法。返回最佳切割方式产生的切割次数。由于这个分支递归会以指数方式多次访问它的子问题，所以你肯定希望在<b class="code">@lru_cache</b> 上洒上一些记忆化魔法，将指数级的纠结降级为二次级的纠结。
-    </i></p>
-</details>
+
 
 <p><i>
     该任务摘自<span>Python CCPS 109</span> 。它由<span>Ryerson Chang School of Continuing Education</span> 教授。<a href="https://github.com/ikokkari">Ilkka Kokkarinen</a>

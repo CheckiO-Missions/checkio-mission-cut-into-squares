@@ -30,12 +30,7 @@
 
 <pre class="brush: {% if is_js %}javascript{% else %}python{% endif %}">{{init_code_tmpl}}</pre>
 <br/>
-<details>
-    <summary><i>Feel yourself in need of a hint? Click on this line.</i></summary>
-    <p style="text-align: justify;"><i>
-        This problem is best solved with recursion. Its base cases are when w==h for a piece that is already a square so you return 0, and when min(w,h)==1 allowing no further cuts on the shorter side, return max(w,h)-1.  Otherwise, loop  through  the  possible  ways  to  cut  this piece into two smaller pieces, recursively computing the best possible way to cut up these two pieces. Return the number of cuts produced by the optimal way of cutting this piece. Since this branching recursion would visit its  subproblems  exponentially  many  times,  you  will  surely  want  to  sprinkle  some <b class="code">@lru_cache</b> memoization magic on it to downgrade that exponential tangle into a mere quadratic one.
-    </i></p>
-</details>
+
 
 <p><i>
     The mission was taken from <span translate="no">Python CCPS 109</span>. It is taught for <span translate="no">Ryerson Chang School of Continuing Education</span> by <a href="https://github.com/ikokkari">Ilkka Kokkarinen</a>

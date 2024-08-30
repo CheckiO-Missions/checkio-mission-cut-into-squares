@@ -30,12 +30,7 @@
 
 <pre class="brush: {% if is_js %}javascript{% else %}python{% endif %}">{{init_code_tmpl}}</pre>
 <br/>
-<details>
-    <summary><i>Vous avez besoin d'un conseil? Cliquez sur cette ligne.</i></summary>
-    <p style="text-align: justify;"><i>
-        Le meilleur moyen de résoudre ce problème est d'utiliser la récursivité. Les cas de base sont lorsque w==h pour une pièce qui est déjà un carré, vous retournez donc 0, et lorsque min(w,h)==1 ne permettant pas d'autres coupes sur le côté le plus court, vous retournez max(w,h)-1.  Sinon, vous bouclez sur les différentes façons de découper ce morceau en deux morceaux plus petits, en calculant récursivement la meilleure façon de découper ces deux morceaux. Retournez le nombre de coupes produites par la façon optimale de découper ce morceau. Comme cette récursion ramifiée visiterait ses sous-problèmes exponentiellement un grand nombre de fois, vous voudrez certainement l'arroser d'un peu de magie de mémorisation <b class="code">@lru_cache</b> pour réduire cet enchevêtrement exponentiel en un simple enchevêtrement quadratique.
-    </i></p>
-</details>
+
 
 <p><i>
     La mission est tirée de <span>Python CCPS 109</span>. Elle est enseignée pour <span>Ryerson Chang School of Continuing Education</span> par <a href="https://github.com/ikokkari">Ilkka Kokkarinen</a>

@@ -1,0 +1,20 @@
+<body data-author="freeman_lex">
+<div class="question-answer">
+    <div class="question">
+        I have no idea how to start solving this mission.
+    </div>
+    <div class="answer">
+        <p>
+            Catch an idea 💡! This problem is best solved with recursion. Its base cases are when w==h for a piece that is already a square so you return 0, and when min(w,h)==1 allowing no further cuts on the shorter side, return max(w,h)-1.  Otherwise, loop  through  the  possible  ways  to  cut  this piece into two smaller pieces, recursively computing the best possible way to cut up these two pieces. Return the number of cuts produced by the optimal way of cutting this piece. Since this branching recursion would visit its  subproblems  exponentially  many  times,  you  will  surely  want  to  sprinkle  some <b class="code">@lru_cache</b> memoization magic on it to downgrade that exponential tangle into a mere quadratic one.
+        </p>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        Thanks! I know and understand more now! Everything works fine!
+    </div>
+    <div class="answer">
+        Glad to hear it 👍!
+    </div>
+</div>
+</body>

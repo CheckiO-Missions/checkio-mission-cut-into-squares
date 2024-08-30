@@ -30,12 +30,7 @@
 
 <pre class="brush: {% if is_js %}javascript{% else %}python{% endif %}">{{init_code_tmpl}}</pre>
 <br/>
-<details>
-    <summary><i>Potrzebują Państwo podpowiedzi? Proszę kliknąć na ten wiersz.</i></summary>
-    <p style="text-align: justify;"><i>
-        Ten problem najlepiej rozwiązać za pomocą rekurencji. Podstawowymi przypadkami są w==h dla kawałka, który jest już kwadratem, więc zwracamy 0, a gdy min(w,h)==1 nie pozwala na dalsze cięcia na krótszym boku, zwracamy max(w,h)-1.  W przeciwnym razie proszę przejść pętlą przez możliwe sposoby pocięcia tego kawałka na dwa mniejsze kawałki, rekurencyjnie obliczając najlepszy możliwy sposób pocięcia tych dwóch kawałków. Proszę zwrócić liczbę cięć wygenerowanych przez optymalny sposób pocięcia tego kawałka. Ponieważ ta rekurencja rozgałęziająca odwiedziłaby swoje podproblemy wykładniczo wiele razy, z pewnością będą Państwo chcieli posypać ją magią memoizacji <b class="code">@lru_cache</b>, aby zmniejszyć tę wykładniczą plątaninę do zaledwie kwadratowej.
-    </i></p>
-</details>
+
 
 <p><i>
     Zadanie zostało zaczerpnięte z <span>Python CCPS 109</span>. Jest ono nauczane dla <span>Ryerson Chang School of Continuing Education</span> przez <a href="https://github.com/ikokkari">Ilkka Kokkarinen</a>
