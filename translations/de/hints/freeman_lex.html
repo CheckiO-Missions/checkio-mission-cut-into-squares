@@ -1,0 +1,20 @@
+<body data-author="freeman_lex">
+<div class="question-answer">
+    <div class="question">
+        Ich habe keine Ahnung, wie ich mit der Lösung dieser Aufgabe beginnen soll.
+    </div>
+    <div class="answer">
+        <p>
+            Fangen Sie eine Idee 💡! Dieses Problem lässt sich am besten mit einer Rekursion lösen. Die Grundfälle sind, wenn w==h für ein Stück, das bereits ein Quadrat ist, so dass Sie 0 zurückgeben, und wenn min(w,h)==1 keine weiteren Schnitte auf der kürzeren Seite zulässt, geben Sie max(w,h)-1 zurück.  Andernfalls gehen Sie in einer Schleife die möglichen Wege durch, um dieses Stück in zwei kleinere Stücke zu zerlegen, und berechnen rekursiv den bestmöglichen Weg, um diese beiden Stücke zu zerlegen. Geben Sie die Anzahl der Schnitte zurück, die durch die optimale Art des Zerschneidens dieses Stücks entstehen. Da diese Verzweigungsrekursion ihre Unterprobleme exponentiell oft besuchen würde, werden Sie sicherlich etwas <b class="code">@lru_cache</b> Memoisierungsmagie darüber streuen wollen, um dieses exponentielle Gewirr in ein einfaches quadratisches Gewirr zu verkleinern.
+        </p>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        Vielen Dank! Ich weiß und verstehe jetzt mehr! Alles funktioniert einwandfrei!
+    </div>
+    <div class="answer">
+        Freut mich zu hören 👍!
+    </div>
+</div>
+</body>
