@@ -1,0 +1,20 @@
+<body data-author="freeman_lex">
+<div class="question-answer">
+    <div class="question">
+        Je n'ai aucune idée de la manière de commencer à résoudre cette mission.
+    </div>
+    <div class="answer">
+        <p>
+            Trouvez une idée 💡! Le meilleur moyen de résoudre ce problème est la récursion. Ses cas de base sont quand w==h pour une pièce qui est déjà un carré donc vous retournez 0, et quand min(w,h)==1 ne permettant pas d'autres coupes sur le côté le plus court, retournez max(w,h)-1.  Sinon, vous bouclez sur les différentes façons de couper ce morceau en deux morceaux plus petits, en calculant récursivement la meilleure façon possible de couper ces deux morceaux. Retournez le nombre de coupes produites par la façon optimale de découper ce morceau. Comme cette récursion ramifiée visiterait ses sous-problèmes exponentiellement un grand nombre de fois, vous voudrez certainement l'arroser d'un peu de magie de mémorisation <b class="code">@lru_cache</b> pour réduire cet enchevêtrement exponentiel en un simple enchevêtrement quadratique.
+        </p>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        Merci! Je comprends mieux maintenant! Tout fonctionne bien!
+    </div>
+    <div class="answer">
+        Heureux de l'apprendre 👍!
+    </div>
+</div>
+</body>
